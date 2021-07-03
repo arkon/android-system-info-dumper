@@ -20,7 +20,7 @@ object DeviceInfo {
             Name: ${Build.DEVICE}
             Model: ${Build.MODEL}
             Product name: ${Build.PRODUCT}
-            ABIs: ${Build.SUPPORTED_ABIS.joinToString()}}
+            ABIs: ${Build.SUPPORTED_ABIS.joinToString()}
         """.trimIndent()
     }
 }
