@@ -8,14 +8,14 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import me.echeung.systeminfodumper.ui.theme.SystemInfoDumperTheme
+import me.echeung.systeminfodumper.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
-            SystemInfoDumperTheme {
-                // A surface container using the 'background' color from the theme
+            AppTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     Greeting("Android")
                 }
@@ -32,7 +32,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    SystemInfoDumperTheme {
+    AppTheme {
         Greeting("Android")
     }
 }
