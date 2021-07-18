@@ -5,14 +5,13 @@ plugins {
 
 android {
     compileSdk 30
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "me.echeung.systeminfodumper"
         minSdk 23
         targetSdk 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
 
     buildTypes {
