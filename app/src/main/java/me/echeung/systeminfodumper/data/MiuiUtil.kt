@@ -18,14 +18,18 @@ object MiuiUtil {
 
     @SuppressLint("PrivateApi")
     private fun isMiuiOptimizationDisabled(): Boolean {
-        if ("0" == getSystemProperty("persist.sys.miui_optimization")) {
+        val sysProp = getSystemProperty("persist.sys.miui_optimization")
+        Log.d(TAG, "persist.sys.miui_optimization (0/false == off): $sysProp")
+        if ("0" == sysProp || "false" == sysProp) {
             return true
         }
 
         return try {
-            Class.forName("android.miui.AppOpsUtils")
+            val isXOptMode = Class.forName("android.miui.AppOpsUtils")
                 .getDeclaredMethod("isXOptMode")
                 .invoke(null) as Boolean
+            Log.d(TAG, "isXOptMode (true == off): $isXOptMode")
+            isXOptMode
         } catch (e: Exception) {
             false
         }
@@ -38,8 +42,10 @@ object MiuiUtil {
                 .getDeclaredMethod("get", String::class.java)
                 .invoke(null, key) as String
         } catch (e: Exception) {
-            Log.w(MiuiUtil.javaClass.simpleName, e)
+            Log.w(TAG, e)
             null
         }
     }
 }
+
+private val TAG = MiuiUtil.javaClass.simpleName
