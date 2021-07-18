@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import me.echeung.systeminfodumper.data.AuthenticatorUtil
 import me.echeung.systeminfodumper.data.DeviceInfo
+import me.echeung.systeminfodumper.data.MiuiUtil
 import me.echeung.systeminfodumper.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -50,6 +51,8 @@ fun SystemInfo() {
         systemInfoSection("Device info") { Text(DeviceInfo.getDeviceInfo()) }
 
         systemInfoSection("Biometrics info") { Text(AuthenticatorUtil.getInfo(context)) }
+
+        systemInfoSection("MIUI info") { Text(MiuiUtil.getMiuiInfo()) }
 
         systemInfoSection("App info") { Text(DeviceInfo.getAppInfo()) }
     }
